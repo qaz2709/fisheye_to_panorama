@@ -1,0 +1,15 @@
+SET (CMAKE_CXX_STANDARD 11)
+SET(CMAKE_BUILD_TYPE DEBUG)
+
+FILE(GLOB hdrs_base "*.h"  )
+FILE(GLOB srcs_base "*.c*" )
+FILE(GLOB hdrs ${hdrs_base} )
+FILE(GLOB srcs ${srcs_base} )
+
+FIND_PACKAGE(OpenCV REQUIRED)
+
+ADD_LIBRARY(calcmap ${srcs})
+SET(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+
+TARGET_LINK_LIBRARIES(calcmap ${OpenCV_LIBS})
+
